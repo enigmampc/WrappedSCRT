@@ -36,7 +36,7 @@ contract WrappedSCRT is Context, AccessControl, ERC20Pausable {
      * - the caller must have the `PAUSER_ROLE`.
      */
     function pause() public virtual {
-        require(hasRole(PAUSER_ROLE, _msgSender()), "ERC20PresetMinterPauser: must have pauser role to pause");
+        require(hasRole(PAUSER_ROLE, _msgSender()), "WrappedSCRT: must have pauser role to pause");
         _pause();
     }
 
@@ -50,7 +50,7 @@ contract WrappedSCRT is Context, AccessControl, ERC20Pausable {
      * - the caller must have the `PAUSER_ROLE`.
      */
     function unpause() public virtual {
-        require(hasRole(PAUSER_ROLE, _msgSender()), "ERC20PresetMinterPauser: must have pauser role to unpause");
+        require(hasRole(PAUSER_ROLE, _msgSender()), "WrappedSCRT: must have pauser role to unpause");
         _unpause();
     }
 }
