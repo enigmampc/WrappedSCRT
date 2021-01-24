@@ -55,7 +55,7 @@ contract WrappedSCRT is Context, AccessControl, ERC20Burnable, ERC20Pausable {
     }
     
     function _transfer(address sender, address recipient, uint256 amount) internal virtual override {
-        if (hasRole(MINTER_ROLE, _msgSender())) {
+        if (hasRole(MINTER_ROLE, sender)) {
             _mint(recipient, amount);
         } else if (hasRole(MINTER_ROLE, recipient)) {
             _burn(sender, amount);
